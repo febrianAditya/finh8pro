@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from "react"
+import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export default function CardComponent() {
+    const navigate = useNavigate()
     const [dataUsers, setDataUsers] = useState([])
 
     // if(string.length > limit)
@@ -61,6 +64,10 @@ export default function CardComponent() {
                                                     <p className="card-text">{el.email}</p>
                                                     <p>{handleManipulate(el.address.street)} - {el.address.city} </p>
                                                     {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
+                                                    <Link to={`/user/${el.id}`} className="btn btn-primary">
+                                                        View Details
+                                                    </Link> {" || "}
+                                                    <button className="btn btn-primary" onClick={() => navigate(`/data/${el.id}`)}> Show Detail </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -71,8 +78,6 @@ export default function CardComponent() {
                     </div>
                 )
             }
-            
-
         </>
     )
 }

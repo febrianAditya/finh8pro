@@ -1,9 +1,8 @@
-
+import { Link, useLocation } from "react-router-dom"
+import "./navbarComponent.css"
 
 export default function NavbarComponent() {
-
-
-
+    const location = useLocation()
     return(
         <>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -13,8 +12,49 @@ export default function NavbarComponent() {
                     <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0 nav-list">
+                        <li>
+                            <Link className="link-tag" to="/">Home</Link>
+                        </li> 
+                        <span> || </span>
+                        <li>
+                            <Link className="link-tag" to="/about">About</Link>
+                        </li>
+                        <span> || </span>
+
+                        {
+                            (location.pathname === '/' || location.pathname === '/about') && (
+                                <>
+                                    <li>
+                                    <Link className="link-tag" to="/login">Login</Link>
+                                    </li>
+                                    <span> || </span>
+                                    <li>
+                                    <Link className="link-tag" to="/register">Register</Link>
+                                    </li>
+                                </>
+                            )
+                        }
+
+                        {
+                            location.pathname === '/login' && (
+                                <>
+                                    <li>
+                                    <Link className="link-tag" to="/register">Register</Link>
+                                    </li>
+                                </>
+                            )
+                        }
+
+                        {
+                            location.pathname === '/register' && (
+                                <>
+                                    <li>
+                                    <Link className="link-tag" to="/login">Login</Link>
+                                    </li>
+                                </>
+                            )
+                        }
                     </ul>
                     <form className="d-flex" role="search">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>

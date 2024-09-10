@@ -4,7 +4,7 @@ import "./dashboardpage.css"
 // import styled from "styled-components"
 
 import {
-    NavbarComponent,
+    // NavbarComponent,
     CardComponent
 } from "../../components"
 
@@ -28,7 +28,7 @@ export default function DashboardPage() {
             {/* <HeadingMan>Febria</HeadingMan>
             <h3 style={{ display: "inline"}}>Bflp x Hacktiv</h3> */}
 
-            <NavbarComponent/>
+            {/* <NavbarComponent/> */}
             <CardComponent/>
         </>
     )

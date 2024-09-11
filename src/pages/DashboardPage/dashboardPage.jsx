@@ -8,6 +8,8 @@ import {
     CardComponent
 } from "../../components"
 
+import { useSelector, useDispatch } from "react-redux"
+
 // const HeadingMan = styled.h1`
 //     color: yellow;
 //     display: inline
@@ -19,6 +21,20 @@ import {
 // }
 
 export default function DashboardPage() {
+    const dataUser = useSelector(state => state.dataUsers)
+    const nameUser = useSelector(state => state.name)
+
+    console.log(nameUser, "==> FINAL");
+    
+    const dispatch = useDispatch()
+
+    const tryChange = () => {
+        dispatch({
+            type: "CHANGE_NAME",
+            payload: "Aditya"
+        })
+    }
+
 
     return(
         <>
@@ -29,6 +45,7 @@ export default function DashboardPage() {
             <h3 style={{ display: "inline"}}>Bflp x Hacktiv</h3> */}
 
             {/* <NavbarComponent/> */}
+            <button onClick={tryChange}>Coba</button>
             <CardComponent/>
         </>
     )

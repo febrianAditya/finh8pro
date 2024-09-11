@@ -22,24 +22,23 @@ export default function CardComponent() {
             // console.log(data);
 
             const resultData = await data.json()
-            console.log(resultData, "==> FINAL");
+            // console.log(resultData, "==> FINAL");
             setDataUsers(resultData)
         } catch (error) {
             console.log(error);
-            
         }
     }
 
 
     const handleManipulate = (inputStreer) => {
-        console.log(inputStreer, "aku terpanggil");
+        // console.log(inputStreer, "aku terpanggil");
         
         const tampData = inputStreer
         if (inputStreer.length > 5) {
             let tampData =  inputStreer.substring(0,5) + "..." 
             return tampData
         }
-        console.log(tampData," ==> FINAL MANIPULATE");   
+        // console.log(tampData," ==> FINAL MANIPULATE");   
 
         return tampData
     }
@@ -54,24 +53,22 @@ export default function CardComponent() {
                     <div className="d-flex justify-content-center ms-auto">
                         <div className="row ms-4">
                             {
-                                dataUsers.map(el => (
-                                    <>
-                                        <div className="col-3 gap-3">
-                                            <div className="card mt-5 mb-5" style={{"width": "18rem"}}>
-                                                <img src="https://picsum.photos/100" className="card-img-top" alt="gambar-orang" height={150} width={30}/>
-                                                <div className="card-body">
-                                                    <h5 className="card-title">{el.name}</h5>
-                                                    <p className="card-text">{el.email}</p>
-                                                    <p>{handleManipulate(el.address.street)} - {el.address.city} </p>
-                                                    {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
-                                                    <Link to={`/user/${el.id}`} className="btn btn-primary">
-                                                        View Details
-                                                    </Link> {" || "}
-                                                    <button className="btn btn-primary" onClick={() => navigate(`/data/${el.id}`)}> Show Detail </button>
-                                                </div>
+                                dataUsers.map(el => (   
+                                    <div key={el.id}  className="col-3 gap-3">
+                                        <div className="card mt-5 mb-5" style={{"width": "18rem"}}>
+                                            <img src="https://picsum.photos/100" className="card-img-top" alt="gambar-orang" height={150} width={30}/>
+                                            <div className="card-body">
+                                                <h5 className="card-title">{el.name}</h5>
+                                                <p className="card-text">{el.email}</p>
+                                                <p>{handleManipulate(el.address.street)} - {el.address.city} </p>
+                                                {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
+                                                <Link to={`/user/${el.id}`} className="btn btn-primary">
+                                                    View Details
+                                                </Link> {" || "}
+                                                <button className="btn btn-primary" onClick={() => navigate(`/data/${el.id}`)}> Show Detail </button>
                                             </div>
                                         </div>
-                                    </>
+                                    </div>
                                 ))
                             }
                         </div>

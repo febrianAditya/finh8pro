@@ -16,9 +16,11 @@ import "bootstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
 import { Route, Routes } from "react-router-dom"
 
+
 function App() {
   return (
     <div className="App">
+
       <NavbarComponent/>
       <Routes>
         <Route path='/' element={<DashboardPage/>} />
@@ -36,6 +38,7 @@ function App() {
         <Route path='/data/:id' element={<DataDetail/>}/>
         <Route path='/sandbox' element={<SandBoxPage/>}/>
       </Routes>
+
     </div>
   );
 }

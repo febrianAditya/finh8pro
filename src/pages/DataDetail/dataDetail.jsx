@@ -1,13 +1,19 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { hitDetailData } from "../../store/action"
+import { useDispatch, useSelector } from "react-redux"
 
 
 export default function DataDetail() {
     const { id } = useParams()
     const [dataUsers, setDataUsers] = useState([])
+    const dispatch = useDispatch()
+    const [scholl, setScholl] = useState()
+    const dataDetailAja = useSelector(state => state.detailData)
 
     useEffect(() => {
-        fetchData()
+        // fetchData()
+        hitData()
     }, [])
 
     const fetchData = async () => {
@@ -28,6 +34,9 @@ export default function DataDetail() {
         }
     }
 
+    const hitData = async () => {
+        dispatch(hitDetailData(id))
+    }   
 
     let findData = dataUsers.find(el => {
         return el.id === Number(id)

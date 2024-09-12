@@ -9,6 +9,7 @@ import AboutMe from './pages/AboutPage/AboutMe';
 import UserDetail from './pages/UserDetail/userDetailPage';
 import DataDetail from './pages/DataDetail/dataDetail';
 import ProtectedRoute from './components/protectedRoute';
+import SandBoxPage from './pages/Sandbox/sandBoxPage';
 
 import { NavbarComponent } from './components';
 import "bootstrap"
@@ -33,6 +34,7 @@ function App() {
           </ProtectedRoute>
         }/>
         <Route path='/data/:id' element={<DataDetail/>}/>
+        <Route path='/sandbox' element={<SandBoxPage/>}/>
       </Routes>
     </div>
   );

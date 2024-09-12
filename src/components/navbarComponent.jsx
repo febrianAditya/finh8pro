@@ -7,7 +7,7 @@ export default function NavbarComponent() {
         <>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="#">FinproH8</a>
+                    <a className="navbar-brand">FinproH8</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                     </button>
@@ -21,9 +21,12 @@ export default function NavbarComponent() {
                             <Link className="link-tag" to="/about">About</Link>
                         </li>
                         <span> || </span>
-
+                        <li>
+                            <Link className="link-tag" to="/sandbox">Sandbox</Link>
+                        </li>
+                        <span> || </span>
                         {
-                            (location.pathname === '/' || location.pathname === '/about') && (
+                            (location.pathname === '/' || location.pathname === '/about' || location.pathname === '/sandbox') && (
                                 <>
                                     <li>
                                     <Link className="link-tag" to="/login">Login</Link>
@@ -55,6 +58,7 @@ export default function NavbarComponent() {
                                 </>
                             )
                         }
+
                     </ul>
                     <form className="d-flex" role="search">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>

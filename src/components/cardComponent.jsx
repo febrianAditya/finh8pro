@@ -24,7 +24,7 @@ export default function CardComponent() {
         <>
             {
                 dataUser.length === 0 ? (
-                    <h1>Loading...!</h1>
+                    <h1>Loading...!!</h1>
                 ) : (
                     <div className="d-flex justify-content-center ms-auto">
                         <div className="row ms-4">
